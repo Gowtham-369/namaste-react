@@ -1,30 +1,43 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement(
-    "div",
-    {id : "parent"},
-    [
-    React.createElement(
-        "div",
-        {id : "child"},
-        [
-            React.createElement("h1",{id : "heading"},"I'm a h1 tag 🙏🏻"),
-            React.createElement("h2",{id : "heading"},"I'm a h2 tag")
-        ]
-    ),
-    React.createElement(
-        "div",
-        {id : "child2"},
-        [
-            React.createElement("h1",{id : "heading"},"I'm a h1 tag"),
-            React.createElement("h2",{id : "heading"},"I'm a h2 tag")
-        ]
-    ) 
-    ]
+// JSX -> Babel transpiles it to -> React.createElemnet (React object or native JS Object) -> render (HTML Element)
+// JSX -> XML like syntax in JS -> Parcel -> Babel
+// Babel transpiles the JSX code before reaching JS engine
+
+
+
+// console.log(jsxHeading);
+
+const data = 1000;
+
+
+// React Element
+const Title = () => (
+    <h1 id="heading" className="heading" tabIndex="2">
+        Namaste React using JSX
+    </h1>
 );
-console.log(parent);
+
+
+// Component Composition
+// React Functional Component
+const HeadingComponent = () => (
+    <div id="container">
+        {console.log(data)}
+        {Title()}
+        <Title />
+        <Title></Title>
+        <h1 id="heading" className="heading" tabIndex="2">
+            Namaste React using JSX
+        </h1>
+        <h1 id="heading" className="heading">Namaste React🙏🏻</h1>
+    </div>
+);  
+
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+root.render(<HeadingComponent />);
