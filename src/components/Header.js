@@ -13,7 +13,7 @@ const Header = () => {
 
     // Subscribing to the store using a Selector
     const cartItems = useSelector((store) => store.cart.items);
-    console.log(cartItems);
+    // console.log(cartItems);
 
     return (
         <div className="flex justify-between h-auto bg-pink-200 shadow-md sm:bg-green-200 md:bg-indigo-200">
@@ -25,6 +25,7 @@ const Header = () => {
                     <li className="p-2">Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
                     <li className="p-2"><Link to="/">Home</Link></li>
                     <li className="p-2"><Link to="/about">About</Link></li>
+                    <li className="p-2"><Link to="/contactus">ContactUs</Link></li>
                     <li className="p-2"><Link to="/notifications">Notifications</Link></li>
                     <li className="p-2"><Link to="/groceries">Grocery</Link></li>
                     <li className="p-2">

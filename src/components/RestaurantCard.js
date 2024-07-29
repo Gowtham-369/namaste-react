@@ -6,12 +6,14 @@ const RestaurantCard = (props) => {
     // console.log(props);
     const {resData} = props;
 
+    // console.log(resData);
+
     const {name, cuisines, avgRating, costForTwo, deliveryTime, cloudinaryImageId} = resData?.info;
 
     const {loggedInUser} = useContext(UserContext);
 
     return (
-        <div className="w-[250px] h-[340px] m-2 p-2 bg-gray-150 hover:bg-gray-300 rounded-md">
+        <div data-testid="resCard" className="w-[250px] h-[340px] m-2 p-2 bg-gray-150 hover:bg-gray-300 rounded-md">
             <img className="w-[250px] h-[150px] rounded-lg" alt="res-logo" src={CDN_URL + cloudinaryImageId}
             />
             <h3 className="font-bold text-lg">

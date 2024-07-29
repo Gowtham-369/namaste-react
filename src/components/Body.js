@@ -24,13 +24,13 @@ const Body = () => {
 
     const fetchData = async () => {
         try{
-            // const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4400802&lng=78.3489168");
-            const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/mapi/homepage/getCards?lat=17.4400802&lng=78.3489168");
+            const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4400802&lng=78.3489168");
+            // const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/mapi/homepage/getCards?lat=17.4400802&lng=78.3489168");
             const jsonObj = await data.json();
             // console.log(jsonObj);
 
-            // const resInfo = jsonObj?.data?.cards[1]?.card?.card?.gridElements || jsonObj?.data?.cards[2]?.card?.card?.gridElements;
-            const resInfo = jsonObj?.data?.success?.cards[3]?.gridWidget?.gridElements;
+            const resInfo = jsonObj?.data?.cards[1]?.card?.card?.gridElements || jsonObj?.data?.cards[2]?.card?.card?.gridElements;
+            // const resInfo = jsonObj?.data?.success?.cards[3]?.gridWidget?.gridElements;
             // console.log(resInfo);
             setListOfRestaurants(resInfo?.infoWithStyle?.restaurants);
             setFilteredRestaurants(resInfo?.infoWithStyle?.restaurants);
@@ -57,7 +57,7 @@ const Body = () => {
         <div className="body">
             <div className="flex items-center p-2 m-2">
                 <div >
-                    <input type="text" className="w-50 border-2 p-2 outline outline-indigo-400" value={searchText} onChange={(e) => {
+                    <input data-testid="searchInput" type="text" className="w-50 border-2 p-2 outline outline-indigo-400" value={searchText} onChange={(e) => {
                         setSearchText(e.target.value);
                     }}
                     />
